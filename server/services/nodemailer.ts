@@ -12,17 +12,34 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-const mailConfig = {
-    from: GMAIL_FROM_ADDRESS,
-    to: 'lisaknox83@gmail.com',
-    subject: 'tets',
-    text: 'maybe works?',
+// const mailConfig = {
+//     from: GMAIL_FROM_ADDRESS,
+//     to: 'lisaknox83@gmail.com',
+//     subject: 'tets',
+//     text: 'maybe works?',
+// };
+
+// export const mailIt = () => {
+//     transporter.sendMail(mailConfig, (err, info) => {
+//         if (err) throw Error(err.message);
+//         console.log('emaoil sent');
+//         console.log(info);
+//     });
+// };
+
+type EmailType = {
+    subject: string;
+    body: string;
 };
 
-export const mailIt = () => {
-    transporter.sendMail(mailConfig, (err, info) => {
+const defaultEmail: EmailType = {
+    subject: 'default subject value',
+    body: 'default body content',
+};
+
+export const mailTo = (address: string, content: EmailType = defaultEmail) => {
+    transporter.sendMail({ from: GMAIL_FROM_ADDRESS, to: address, ...content }, (err, info) => {
         if (err) throw Error(err.message);
-        console.log('emaoil sent');
-        console.log(info);
+        // console.log(info);
     });
 };

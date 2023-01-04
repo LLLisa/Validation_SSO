@@ -15,3 +15,11 @@ export const textIt = () => {
         })
         .then((message) => console.log(message.sid));
 };
+
+export const textTo = async (to: string = '+16468585409', body: string) => {
+    twilioClient.messages.create({
+        to,
+        from: TWILIO_PHONE_NUM,
+        body,
+    });
+};

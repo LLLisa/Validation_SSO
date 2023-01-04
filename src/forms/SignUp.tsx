@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const SignUp = () => {
-    const [firstName, setFirsName] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleSubmit = (ev: React.FormEvent) => {
         ev.preventDefault();
-        console.log(firstName);
-        axios.get('/user/email');
-        setFirsName('');
+        console.log(email);
+        axios.post('/user/email', { email: email });
+        setEmail('');
     };
 
     return (
@@ -19,9 +19,9 @@ const SignUp = () => {
                     Enter Your Information
                     <input
                         type='text'
-                        value={firstName}
-                        placeholder='first name'
-                        onChange={(ev) => setFirsName(ev.target.value)}
+                        value={email}
+                        placeholder='email'
+                        onChange={(ev) => setEmail(ev.target.value)}
                     />
                 </label>
             </form>

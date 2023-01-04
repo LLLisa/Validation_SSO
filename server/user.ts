@@ -1,7 +1,12 @@
 import express, { Router, Request, Response } from 'express';
 export const userRouter: Router = express.Router();
+import { mailTo } from './services/nodemailer';
 
-userRouter.get('/email', (req: Request, res: Response) => {
-    console.log('email route');
-    res.send('hi');
+userRouter.post('/email', async (req: Request, res: Response) => {
+    try {
+        await mailTo(req.body.email);
+        res.send('hi');
+    } catch (error) {
+        console.log(error);
+    }
 });
