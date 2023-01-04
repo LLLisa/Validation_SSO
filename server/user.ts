@@ -5,5 +5,3 @@ userRouter.get('/email', (req: Request, res: Response) => {
     console.log('email route');
     res.send('hi');
 });
-
-// export default router;
