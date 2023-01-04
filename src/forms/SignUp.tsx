@@ -8,6 +8,7 @@ const SignUp = () => {
         ev.preventDefault();
         console.log(firstName);
         axios.get('/user/email');
+        setFirsName('');
     };
 
     return (
