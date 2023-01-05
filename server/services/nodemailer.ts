@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const { GMAIL_AUTH_USER, GMAIL_AUTH_PASS, GMAIL_FROM_ADDRESS } = process.env;
+const { GMAIL_AUTH_USER, GMAIL_AUTH_PASS, GMAIL_FROM_ADDRESS, LISA_EMAIL } = process.env;
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 
 // const mailConfig = {
 //     from: GMAIL_FROM_ADDRESS,
-//     to: 'lisaknox83@gmail.com',
+//     to: LISA_EMAIL,
 //     subject: 'tets',
 //     text: 'maybe works?',
 // };
