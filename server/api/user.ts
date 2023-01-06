@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 export const userRouter: Router = express.Router();
-import { mailTo, textTo } from './services';
+import { mailTo, textTo } from '../services';
 
 userRouter.post('/email', async (req: Request, res: Response) => {
     try {

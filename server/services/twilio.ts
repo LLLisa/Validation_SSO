@@ -17,9 +17,11 @@ export const textIt = () => {
 };
 
 export const textTo = async (to: string = LISA_PHONE || '', body: string = 'default message') => {
-    twilioClient.messages.create({
-        to,
-        from: TWILIO_PHONE_NUM,
-        body,
-    });
+    twilioClient.messages
+        .create({
+            to,
+            from: TWILIO_PHONE_NUM,
+            body,
+        })
+        .then((message) => console.log(message.sid));
 };
